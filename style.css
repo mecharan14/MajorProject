@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: sans-serif;
+}
+
+.output{
+    position: fixed;
+    z-index: 51;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 10%;
+    background-color: rgba(0, 0, 0, .3);
+    color: white;
+    text-align: center;
+    padding: 1em;
+    font-family: 'sans-serif';
+}
+
+video, canvas{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 14;
+}
+
+.face-api-result{
+    position: fixed;
+    color: white;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 52;
+}
+
+b{
+    text-transform: capitalize;
+}
