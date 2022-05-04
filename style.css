@@ -43,3 +43,18 @@ video, canvas{
 b{
     text-transform: capitalize;
 }
+
+.change-btn{
+    background-color: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.change-btn:hover{
+    background-color: bisque;
+}
+
+.change-btn i{
+    font-size: 32px;
+}

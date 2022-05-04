@@ -10,7 +10,7 @@ let worker;
 
 async function make() {
   video = await getVideo();
-
+  console.log("ML5 initializing");
   objectDetector = await ml5.objectDetector("cocossd", startDetecting);
 
   canvas = createCanvas(width, height);
@@ -28,19 +28,18 @@ window.addEventListener("DOMContentLoaded", async function () {
       faceapi.nets.ssdMobilenetv1.loadFromUri('/models'),
   ]).then(() => {
       console.log("face models loaded")
-      startFaceApi();
   })
-  if(!faceRecognition){
-    worker = Tesseract.createWorker({
-      logger: (m) => {
-        document.querySelector("#work").innerHTML = m.status;
-        document.querySelector("#progress").innerHTML = m.progress * 100 + "%";
-      },
-    });
-    await worker.load();
-    await worker.loadLanguage("eng");
-    await worker.initialize("eng");
-  }
+  // if(!faceRecognition){
+  //   worker = Tesseract.createWorker({
+  //     logger: (m) => {
+  //       document.querySelector("#work").innerHTML = m.status;
+  //       document.querySelector("#progress").innerHTML = m.progress * 100 + "%";
+  //     },
+  //   });
+  //   await worker.load();
+  //   await worker.loadLanguage("eng");
+  //   await worker.initialize("eng");
+  // }
 });
 
 function startDetecting() {
@@ -73,6 +72,7 @@ function detect() {
 }
 
 async function draw() {
+  ctx.clearRect(0, 0, width, height)
   ctx.fillStyle = "lightgrey";
   ctx.fillRect(0, 0, width, height);
 

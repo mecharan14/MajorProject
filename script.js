@@ -44,12 +44,25 @@ const process = (text, recognition) => {
     speak("Hello, good " + greet);
     return;
   }
-  if (text.indexOf("read") > -1) {
-    speak("Please wait while I recognise text");
-    startTesseract();
-    return;
-  }
+  // if (text.indexOf("read") > -1) {
+  //   speak("Please wait while I recognise text");
+  //   startTesseract();
+  //   return;
+  // }
   if (text.indexOf("what do you see") > -1) {
+    temp()
+  }
+
+  // document.querySelector('.output').textContent= text
+  // speak(text);
+  if (text.trim() == "stop") {
+    end = true;
+    recognition.stop();
+  }
+};
+
+const temp = async () => {
+  await startFaceApi2();
     var map = new Map();
     objects.forEach((element) => {
       if (map.has(element["label"])) {
@@ -69,15 +82,7 @@ const process = (text, recognition) => {
       }
     });
     speak(msg);
-  }
-
-  // document.querySelector('.output').textContent= text
-  // speak(text);
-  if (text.trim() == "stop") {
-    end = true;
-    recognition.stop();
-  }
-};
+}
 
 const speak = (text) => {
   if ("speechSynthesis" in window) {
